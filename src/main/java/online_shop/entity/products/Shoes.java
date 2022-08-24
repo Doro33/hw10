@@ -28,4 +28,14 @@ public class Shoes extends Product implements Measurable{
         this.color = color;
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return  name +
+                " | type: " + type +
+                " | producer: " + producer +
+                " | color: '" + color +
+                " | size: " + size +
+                " | price: " + price ;
+    }
 }
