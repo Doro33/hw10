@@ -2,6 +2,7 @@ package online_shop.entity.User;
 
 public class Address {
     private int postalCode;
+    int userId;
     private String city;
     private String street;
     private String alley;
@@ -13,6 +14,14 @@ public class Address {
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getCity() {
