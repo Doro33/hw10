@@ -23,8 +23,8 @@ public class Shoes extends Product{
     public Shoes() {
     }
 
-    public Shoes(int id, String name, String type, String producer, float price, String color, float size) {
-        super(id, name, type, producer, price);
+    public Shoes(int id, String name, String type, String producer,int quantity, float price, String color, float size) {
+        super(id, name, type, producer, quantity, price);
         this.color = color;
         this.size = size;
     }
