@@ -1,10 +1,19 @@
 package online_shop.entity.User;
 
 public class Address {
+    int postalCode;
     String city;
     String street;
     String alley;
     int houseNumber;
+
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
 
     public String getCity() {
         return city;
