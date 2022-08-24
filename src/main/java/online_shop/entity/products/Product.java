@@ -1,12 +1,12 @@
 package online_shop.entity.products;
 
 public abstract class Product {
-    int id;
-    String name;
-    String type;
-    String producer;
-    int quantity;
-    float price;
+    protected int id;
+    protected String name;
+    protected String type;
+    protected String producer;
+    protected int quantity;
+    protected float price;
 
     public Product() {
     }

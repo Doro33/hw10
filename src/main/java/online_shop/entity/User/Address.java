@@ -1,11 +1,11 @@
 package online_shop.entity.User;
 
 public class Address {
-    int postalCode;
-    String city;
-    String street;
-    String alley;
-    int houseNumber;
+    private int postalCode;
+    private String city;
+    private String street;
+    private String alley;
+    private int houseNumber;
 
     public int getPostalCode() {
         return postalCode;

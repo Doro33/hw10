@@ -1,8 +1,8 @@
 package online_shop.entity.products;
 
 public class Shoes extends Product implements Measurable{
-    String color;
-    float size;
+    private String color;
+    private float size;
 
     public String getColor() {
         return color;
