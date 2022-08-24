@@ -10,16 +10,6 @@ public abstract class Product {
 
     public Product() {
     }
-
-    public Product(int id, String name, String type, String producer,int quantity, float price) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.producer = producer;
-        this.quantity= quantity;
-        this.price = price;
-    }
-
     public int getId() {
         return id;
     }
@@ -51,6 +41,7 @@ public abstract class Product {
     public void setProducer(String producer) {
         this.producer = producer;
     }
+
     public int getQuantity() {
         return quantity;
     }
@@ -58,19 +49,12 @@ public abstract class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
     public float getPrice() {
         return price;
     }
 
     public void setPrice(float price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "name: " + name +
-                " | type: " + type +
-                " | producer: " + producer+
-                " | price: " + price ;
     }
 }

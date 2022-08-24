@@ -1,16 +1,10 @@
 package online_shop.entity.products;
 
-public class Readable extends Product{
+public class Readable extends Product {
     private String writer;
     private String subject;
 
     public Readable() {
-    }
-
-    public Readable(int id, String name, String type, String producer, int quantity, float price, String writer, String subject) {
-        super(id, name, type, producer, quantity, price);
-        this.writer = writer;
-        this.subject = subject;
     }
 
     public String getWriter() {
@@ -31,11 +25,11 @@ public class Readable extends Product{
 
     @Override
     public String toString() {
-        return  name +
+        return name +
                 " | type: " + type +
                 " | writer: " + writer +
                 " | subject: " + subject +
                 " | publisher: " + producer +
-                " | price:" + price ;
+                " | price:" + price;
     }
 }
