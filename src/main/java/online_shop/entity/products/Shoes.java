@@ -1,6 +1,6 @@
 package online_shop.entity.products;
 
-public class Shoes extends Product{
+public class Shoes extends Product implements Measurable{
     String color;
     float size;
 
@@ -11,11 +11,11 @@ public class Shoes extends Product{
     public void setColor(String color) {
         this.color = color;
     }
-
+    @Override
     public float getSize() {
         return size;
     }
-
+    @Override
     public void setSize(float size) {
         this.size = size;
     }
