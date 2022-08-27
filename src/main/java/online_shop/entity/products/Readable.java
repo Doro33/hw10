@@ -26,7 +26,7 @@ public class Readable extends Product {
     @Override
     public String toString() {
         return name +
-                " | type: " + type +
+                " | category: " + category +
                 " | writer: " + writer +
                 " | subject: " + subject +
                 " | publisher: " + producer +

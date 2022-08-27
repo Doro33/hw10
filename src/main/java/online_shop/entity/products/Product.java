@@ -3,7 +3,7 @@ package online_shop.entity.products;
 public abstract class Product {
     protected int id;
     protected String name;
-    protected String type;
+    protected String category;
     protected String producer;
     protected int quantity;
     protected float price;
@@ -26,12 +26,12 @@ public abstract class Product {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getProducer() {

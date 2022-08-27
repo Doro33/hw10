@@ -27,7 +27,7 @@ public class Shoes extends Product implements Measurable {
     @Override
     public String toString() {
         return name +
-                " | type: " + type +
+                " | category: " + category +
                 " | producer: " + producer +
                 " | color: '" + color +
                 " | size: " + size +

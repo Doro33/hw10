@@ -16,7 +16,7 @@ public class ElectricDevice extends Product implements Measurable{
     @Override
     public String toString() {
         return  name +
-                " | type: " + type +
+                " | category: " + category +
                 " | producer: " + producer +
                 " | size: " + size +"inch"+
                 " | price: " + price;
