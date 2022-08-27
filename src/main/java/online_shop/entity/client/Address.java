@@ -1,4 +1,4 @@
-package online_shop.entity.User;
+package online_shop.entity.client;
 
 public class Address {
     private int postalCode;

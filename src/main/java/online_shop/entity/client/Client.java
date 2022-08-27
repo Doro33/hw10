@@ -1,16 +1,16 @@
-package online_shop.entity.User;
+package online_shop.entity.client;
 
 import online_shop.entity.order.Order;
 
 import java.util.ArrayList;
 
-public class User {
+public class Client {
 
 private int id;
 private String name;
 private String nationalCode;
-private String Username;
-private String Password;
+private String username;
+private String password;
 private ArrayList<Address> addresses;
 private ArrayList<Order> orders;
 
@@ -38,19 +38,19 @@ private ArrayList<Order> orders;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
     public ArrayList<Address> getAddresses() {
         return addresses;
@@ -66,5 +66,16 @@ private ArrayList<Order> orders;
 
     public void addOrders(Order order) {
         this.orders.add(order);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
