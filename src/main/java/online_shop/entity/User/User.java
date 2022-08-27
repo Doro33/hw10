@@ -55,7 +55,7 @@ private ArrayList<Order> orders;
         return orders;
     }
 
-    public void setOrders(ArrayList<Order> orders) {
-        this.orders = orders;
+    public void addOrders(Order order) {
+        this.orders.add(order);
     }
 }
