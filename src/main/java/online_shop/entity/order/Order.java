@@ -23,11 +23,11 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserId() {
+    public int getClientId() {
         return clientId;
     }
 
-    public void setUserId(int clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
     }
 

@@ -2,14 +2,17 @@ package online_shop.repository;
 
 import online_shop.entity.order.Order;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface OrderRepository {
-    void createTable();
+    void createTable() throws SQLException;
 
-    Order addOrder(Order order);
+    Order addOrder(Order order) throws SQLException;
 
-    Order findById(int id);
+    Order setTotalPrice(int orderId);
 
-    ArrayList<Order> clientOrders(int clientId);
+    Order findById(int id) throws SQLException;
+
+    ArrayList<Order> getClientOrders(int clientId) throws SQLException;
 }
