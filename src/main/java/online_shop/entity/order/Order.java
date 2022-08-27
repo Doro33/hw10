@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class Order {
     private int id;
-    private int userId;
+    private int clientId;
     private int addressId;
+    Date orderDate;
     private ArrayList<Item> items;
     private float totalPrice;
-    Date orderDate;
     private String status;
 
     public Order() {
@@ -24,11 +24,11 @@ public class Order {
     }
 
     public int getUserId() {
-        return userId;
+        return clientId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int clientId) {
+        this.clientId = clientId;
     }
 
     public int getAddressId() {

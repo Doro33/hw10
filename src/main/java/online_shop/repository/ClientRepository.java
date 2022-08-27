@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public interface ClientRepository {
     void createTable() throws SQLException;
 
-    Client addUser(Client client) throws SQLException;
+    Client addClient(Client client) throws SQLException;
 
     Client findById(int id) throws SQLException;
 }

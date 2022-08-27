@@ -24,7 +24,7 @@ public class ClientRepoImpl implements ClientRepository {
     }
 
     @Override
-    public Client addUser(Client client) throws SQLException {
+    public Client addClient(Client client) throws SQLException {
         String sql = """
                 INSERT INTO client (name,national_code,username,password)
                 VALUES (?,?,?,?)
@@ -47,8 +47,7 @@ public class ClientRepoImpl implements ClientRepository {
     }
 
     @Override
-    public Client findById(int id
-    ) throws SQLException {
+    public Client findById(int id) throws SQLException {
         String sql = """
                 Select * from client
                 where id=?;
