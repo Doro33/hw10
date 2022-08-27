@@ -146,3 +146,4 @@ replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
 /.idea/dataSources.xml
+/.idea/sqldialects.xml

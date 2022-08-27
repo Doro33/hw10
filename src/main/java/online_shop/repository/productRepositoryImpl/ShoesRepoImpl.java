@@ -1,6 +1,6 @@
 package online_shop.repository.productRepositoryImpl;
 
-import online_shop.entity.products.ElectricDevice;
+import online_shop.entity.products.Shoes;
 import online_shop.repository.ProductRepository;
 import online_shop.util.AppConnection;
 
@@ -10,31 +10,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ElectricDeviceRepoImpl implements ProductRepository<ElectricDevice> {
-
+public class ShoesRepoImpl implements ProductRepository<Shoes> {
     private Connection connection = AppConnection.getConnection();
 
-    private ElectricDevice getElectricDevice(ResultSet rs) throws SQLException {
-        ElectricDevice output = new ElectricDevice();
+    private Shoes getShoes(ResultSet rs) throws SQLException {
+        Shoes output = new Shoes();
         output.setId(rs.getInt(1));
         output.setName(rs.getString(2));
         output.setCategory(rs.getString(3));
         output.setProducer(rs.getString(4));
         output.setSize(rs.getFloat(5));
-        output.setQuantity(rs.getInt(6));
-        output.setPrice(rs.getFloat(7));
+        output.setColor(rs.getString(6));
+        output.setQuantity(rs.getInt(7));
+        output.setPrice(rs.getFloat(8));
         return output;
     }
 
     @Override
     public void createTable() throws SQLException {
         String sql = """
-                create table if not exists electric_device(
+                create table if not exists shoes(
                 id serial primary key,
                 name varchar(32),
                 category varchar(32),
                 producer varchar(32),
                 size float,
+                color varchar(32),
                 quantity integer,
                 price float
                 )
@@ -44,9 +45,9 @@ public class ElectricDeviceRepoImpl implements ProductRepository<ElectricDevice>
     }
 
     @Override
-    public ElectricDevice findById(int id) throws SQLException {
+    public Shoes findById(int id) throws SQLException {
         String sql = """
-                Select * from electric_device
+                Select * from shoes
                 where id=?;
                 """;
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -54,20 +55,20 @@ public class ElectricDeviceRepoImpl implements ProductRepository<ElectricDevice>
 
         ResultSet rs = ps.executeQuery();
         rs.next();
-        return getElectricDevice(rs);
+        return getShoes(rs);
     }
 
     @Override
-    public ArrayList<ElectricDevice> getAvailableProducts() throws SQLException {
+    public ArrayList getAvailableProducts() throws SQLException {
         String sql = """
-                Select * from electric_device
+                Select * from shoes
                 where quantity>0;
                 """;
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        ArrayList<ElectricDevice> output = new ArrayList<>();
+        ArrayList<Shoes> output = new ArrayList<>();
         while (rs.next()) {
-            output.add(getElectricDevice(rs));
+            output.add(getShoes(rs));
         }
         rs.close();
         return output;
@@ -75,14 +76,14 @@ public class ElectricDeviceRepoImpl implements ProductRepository<ElectricDevice>
 
     @Override
     public void updateQuantity(int id, int numberOfItem) throws SQLException {
-        ElectricDevice ed = findById(id);
+        Shoes shoes = findById(id);
         String sql = """
-                UPDATE electric_device
+                UPDATE shoes
                 SET quantity=?
                 WHERE id = ?
                 """;
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, ed.getQuantity() - numberOfItem);
+        ps.setInt(1, shoes.getQuantity() - numberOfItem);
         ps.setInt(2, id);
         ps.execute();
         ps.close();
