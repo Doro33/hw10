@@ -5,6 +5,8 @@ import online_shop.entity.order.Order;
 import java.util.ArrayList;
 
 public class User {
+
+private int id;
 private String name;
 private String nationalCode;
 private String Username;
@@ -12,6 +14,13 @@ private String Password;
 private ArrayList<Address> addresses;
 private ArrayList<Order> orders;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
