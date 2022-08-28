@@ -1,8 +1,6 @@
 package online_shop.repository.orderRepositoryImpl;
 
-import online_shop.entity.client.Client;
 import online_shop.entity.order.Order;
-import online_shop.entity.products.ElectricDevice;
 import online_shop.repository.OrderRepository;
 import online_shop.util.AppConnection;
 
@@ -12,8 +10,9 @@ import java.util.ArrayList;
 
 public class OrderRepoImpl implements OrderRepository {
     private Connection connection = AppConnection.getConnection();
+
     private Order getOrder(ResultSet rs) throws SQLException {
-        Order output=new Order();
+        Order output = new Order();
         output.setId(rs.getInt(1));
         output.setClientId(rs.getInt(2));
         output.setAddressId(rs.getInt(3));
@@ -22,6 +21,7 @@ public class OrderRepoImpl implements OrderRepository {
         output.setStatus(rs.getString(6));
         return output;
     }
+
     @Override
     public void createTable() throws SQLException {
         String sql = """
@@ -37,6 +37,7 @@ public class OrderRepoImpl implements OrderRepository {
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.execute();
     }
+
     @Override
     public Order addOrder(Order order) throws SQLException {
         String sql = """
@@ -45,9 +46,9 @@ public class OrderRepoImpl implements OrderRepository {
                 """;
 
         PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setInt(1,order.getClientId());
-        ps.setInt(2,order.getAddressId());
-        ps.setDate(3,Date.valueOf(LocalDate.now()));
+        ps.setInt(1, order.getClientId());
+        ps.setInt(2, order.getAddressId());
+        ps.setDate(3, Date.valueOf(LocalDate.now()));
 
         ps.execute();
         ResultSet generatedIds = ps.getGeneratedKeys();
@@ -83,7 +84,6 @@ public class OrderRepoImpl implements OrderRepository {
     }
 
 
-
     @Override
     public ArrayList<Order> getClientOrders(int clientId) throws SQLException {
         String sql = """
@@ -92,7 +92,7 @@ public class OrderRepoImpl implements OrderRepository {
                 order by id;
                 """;
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1,clientId);
+        ps.setInt(1, clientId);
         ResultSet rs = ps.executeQuery();
         ArrayList<Order> output = new ArrayList<>();
         while (rs.next()) {

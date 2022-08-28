@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Item {
     private int id;
     private int orderId;
-    private String group;
+    private String kind;
     private int productId;
     private int number;
     private float unitPrice;
@@ -29,12 +29,12 @@ public class Item {
         this.orderId = orderId;
     }
 
-    public String getGroup() {
-        return group;
+    public String getKind() {
+        return kind;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
     public int getProductId() {
@@ -69,5 +69,18 @@ public class Item {
 
     public void setRetailPrice(float retailPrice) {
         this.retailPrice = retailPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", orderId=" + orderId +
+                ", kind='" + kind + '\'' +
+                ", productId=" + productId +
+                ", number=" + number +
+                ", unitPrice=" + unitPrice +
+                ", retailPrice=" + retailPrice +
+                '}';
     }
 }
