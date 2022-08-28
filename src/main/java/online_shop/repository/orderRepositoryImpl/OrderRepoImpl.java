@@ -1,6 +1,8 @@
 package online_shop.repository.orderRepositoryImpl;
 
+import online_shop.entity.order.Item;
 import online_shop.entity.order.Order;
+import online_shop.repository.ItemRepository;
 import online_shop.repository.OrderRepository;
 import online_shop.util.AppConnection;
 
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 public class OrderRepoImpl implements OrderRepository {
     private Connection connection = AppConnection.getConnection();
+    ItemRepository itemRepo=new ItemRepoImpl();
 
     private Order getOrder(ResultSet rs) throws SQLException {
         Order output = new Order();
@@ -62,8 +65,23 @@ public class OrderRepoImpl implements OrderRepository {
     }
 
     @Override
-    public Order setTotalPrice(int orderId) {
-        return null;
+    public Order setTotalPrice(int orderId) throws SQLException {
+        ArrayList<Item> orderItems=itemRepo.findOrderItems(orderId);
+        float totalPrice=0;
+        for (int i=0 ; i<orderItems.size();i++)
+            totalPrice += orderItems.get(i).getRetailPrice();
+        String sql = """
+                UPDATE orders
+                SET total_price=?
+                WHERE id = ?
+                """;
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setDouble(1, totalPrice);
+        ps.setInt(2, orderId);
+        ps.execute();
+        Order output=findById(orderId);
+        output.setTotalPrice(totalPrice);
+        return output;
     }
 
     @Override

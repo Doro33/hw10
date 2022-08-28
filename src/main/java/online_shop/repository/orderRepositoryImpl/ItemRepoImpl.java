@@ -1,12 +1,10 @@
 package online_shop.repository.orderRepositoryImpl;
 
 import online_shop.entity.order.Item;
-import online_shop.entity.order.Order;
 import online_shop.repository.ItemRepository;
 import online_shop.util.AppConnection;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ItemRepoImpl implements ItemRepository {
@@ -23,10 +21,11 @@ public class ItemRepoImpl implements ItemRepository {
         item.setRetailPrice(rs.getFloat(7));
         return item;
     }
+
     @Override
     public void createTable() throws SQLException {
 
-            String sql = """
+        String sql = """
                 create table if not exists item(
                 id serial primary key,
                 order_id serial REFERENCES orders (id),
@@ -37,8 +36,8 @@ public class ItemRepoImpl implements ItemRepository {
                 retail_price float
                 )
                 """;
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.execute();
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.execute();
     }
 
     @Override
@@ -51,10 +50,10 @@ public class ItemRepoImpl implements ItemRepository {
         PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, item.getOrderId());
         ps.setString(2, item.getKind());
-        ps.setInt(3,item.getProductId());
-        ps.setInt(4,item.getNumber());
-        ps.setFloat(5,item.getUnitPrice());
-        ps.setFloat(6,item.getRetailPrice());
+        ps.setInt(3, item.getProductId());
+        ps.setInt(4, item.getNumber());
+        ps.setFloat(5, item.getUnitPrice());
+        ps.setFloat(6, item.getRetailPrice());
 
         ps.execute();
         ResultSet generatedIds = ps.getGeneratedKeys();

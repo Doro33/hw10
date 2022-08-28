@@ -10,7 +10,7 @@ public interface OrderRepository {
 
     Order addOrder(Order order) throws SQLException;
 
-    Order setTotalPrice(int orderId);
+    Order setTotalPrice(int orderId) throws SQLException;
 
     Order findById(int id) throws SQLException;
 
