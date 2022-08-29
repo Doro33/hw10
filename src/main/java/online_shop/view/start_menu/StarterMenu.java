@@ -5,7 +5,7 @@ import online_shop.util.AppContext;
 import java.util.ArrayList;
 
 public class StarterMenu {
-    ArrayList<String> menuItems= new ArrayList<>();
+    private ArrayList<String> menuItems= new ArrayList<>();
     {
         menuItems.add("sign in");
         menuItems.add("sign up");

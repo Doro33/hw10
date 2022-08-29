@@ -9,5 +9,8 @@ public interface ClientRepository {
 
     Client addClient(Client client) throws SQLException;
 
-    Client findById(int id) throws SQLException;
+    Client findByUsername(String username) throws SQLException;
+
+    boolean usernameExist(String username) throws SQLException;
+    boolean nationalCodeExist(String nationalCode) throws SQLException;
 }

@@ -47,18 +47,18 @@ public class ClientRepoImpl implements ClientRepository {
     }
 
     @Override
-    public Client findById(int id) throws SQLException {
+    public Client findByUsername(String username) throws SQLException {
         String sql = """
                 Select * from client
-                where id=?;
+                where username=?;
                 """;
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, id);
+        ps.setString(1, username);
         ps.execute();
         ResultSet rs = ps.executeQuery();
         rs.next();
         Client output=new Client();
-        output.setId(id);
+        output.setId(rs.getInt(1));
         output.setName(rs.getString(2));
         output.setNationalCode(rs.getString(3));
         output.setUsername(rs.getString(4));
@@ -66,5 +66,29 @@ public class ClientRepoImpl implements ClientRepository {
         ps.close();
         rs.close();
         return output;
+    }
+
+    @Override
+    public boolean usernameExist(String username) throws SQLException {
+        String sql = """
+                SELECT username from client
+                WHERE username=? ;
+                """;
+        PreparedStatement ps = AppConnection.getConnection().prepareStatement(sql);
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    @Override
+    public boolean nationalCodeExist(String nationalCode) throws SQLException {
+        String sql = """
+                SELECT national_code from client
+                WHERE national_code=? ;
+                """;
+        PreparedStatement ps = AppConnection.getConnection().prepareStatement(sql);
+        ps.setString(1, nationalCode);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
     }
 }
