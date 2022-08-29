@@ -1,9 +1,10 @@
 package online_shop.view.client_menu;
 
+import online_shop.entity.client.Client;
 import online_shop.util.AppContext;
 
 public class ClientExit {
-    public void exitCheck(){
+    public void exitCheck(Client client){
         System.out.println("are you sure you want to exit?");
         String input;
         while (true) {
@@ -14,7 +15,7 @@ public class ClientExit {
                 AppContext.getStarterMenu().startMenu();
             } else if (input.matches("n")) {
                 System.out.println("----------------");
-                AppContext.getClientMenu().startMenu();
+                AppContext.getClientMenu().startMenu(client);
             } else
                 System.out.println("your input is not valid.");
         }

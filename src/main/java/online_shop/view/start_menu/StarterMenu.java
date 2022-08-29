@@ -1,5 +1,6 @@
 package online_shop.view.start_menu;
 
+import online_shop.entity.client.Client;
 import online_shop.util.AppContext;
 
 import java.util.ArrayList;
@@ -21,11 +22,15 @@ public class StarterMenu {
             switch (input) {
                 case "1":
                     System.out.println("----------------");
-                    AppContext.getSignIn().logIn();
+                    Client client=AppContext.getSignIn().logIn();
+                    System.out.println("----------------");
+                    AppContext.getClientMenu().startMenu(client);
                     break;
                 case "2":
                     System.out.println("----------------");
-                    AppContext.getSignUp().signUpNewClient();
+                    Client newClient=AppContext.getSignUp().signUpNewClient();
+                    System.out.println("----------------");
+                    AppContext.getClientMenu().startMenu(newClient);
                     break;
                 case "3":
                     System.out.println("----------------");

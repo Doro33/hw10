@@ -1,5 +1,6 @@
 package online_shop.view.client_menu;
 
+import online_shop.entity.client.Client;
 import online_shop.util.AppContext;
 
 import java.util.ArrayList;
@@ -11,7 +12,8 @@ public class ClientMenu {
         menuItems.add("my previous orders");
         menuItems.add("exit");
     }
-    public void startMenu(){
+    public void startMenu(Client client){
+        //System.out.println(client);
         AppContext.printStrings(menuItems);
         System.out.print("what do you want to do: ");
         String input;
@@ -24,10 +26,11 @@ public class ClientMenu {
                     break;
                 case "2":
                     System.out.println("----------------");
+                    AppContext.getPreviousOrders().clientPreviousOrders(client);
                     break;
                 case "3":
                     System.out.println("----------------");
-                    AppContext.getClientExit().exitCheck();
+                    AppContext.getClientExit().exitCheck(client);
                     break;
                 default:
                     System.out.println("your input is not valid.");

@@ -1,11 +1,15 @@
 package online_shop.util;
 
 import online_shop.repository.ClientRepository;
+import online_shop.repository.OrderRepository;
 import online_shop.repository.clientRepositoryImpl.ClientRepoImpl;
+import online_shop.repository.orderRepositoryImpl.OrderRepoImpl;
+import online_shop.sevice.client_menu_service.PreviousOrderService;
 import online_shop.sevice.starter_menu_service.SignInService;
 import online_shop.sevice.starter_menu_service.SignUpService;
 import online_shop.view.client_menu.ClientExit;
 import online_shop.view.client_menu.ClientMenu;
+import online_shop.view.client_menu.PreviousOrders;
 import online_shop.view.start_menu.ExitProgram;
 import online_shop.view.start_menu.SignIn;
 import online_shop.view.start_menu.SignUp;
@@ -25,7 +29,9 @@ public class AppContext {
     private static final SignIn SIGN_IN = new SignIn();
     private static final ClientMenu CLIENT_MENU = new ClientMenu();
     private static final ClientExit CLIENT_EXIT = new ClientExit();
-
+    private static final OrderRepository ORDER_REPOSITORY= new OrderRepoImpl();
+    private static final PreviousOrderService PREVIOUS_ORDER_SERVICE = new PreviousOrderService();
+    private static final PreviousOrders PREVIOUS_ORDERS= new PreviousOrders();
     public static Scanner getScanner() {
         return new Scanner(System.in);
     }
@@ -38,6 +44,9 @@ public class AppContext {
     public static SignIn getSignIn(){return SIGN_IN;}
     public static ClientMenu getClientMenu(){return CLIENT_MENU;}
     public static ClientExit getClientExit(){return CLIENT_EXIT;}
+    public static OrderRepository getOrderRepository(){return ORDER_REPOSITORY;}
+    public static PreviousOrderService getPreviousOrderService(){return PREVIOUS_ORDER_SERVICE;}
+    public static PreviousOrders getPreviousOrders(){return PREVIOUS_ORDERS;}
     public static void printStrings(ArrayList input) {
         if (input.isEmpty())
             System.out.println("there is no item to show.");
