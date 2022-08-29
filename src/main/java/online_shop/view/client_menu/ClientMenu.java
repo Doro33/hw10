@@ -1,14 +1,14 @@
-package online_shop.view.start_menu;
+package online_shop.view.client_menu;
 
 import online_shop.util.AppContext;
 
 import java.util.ArrayList;
 
-public class StarterMenu {
+public class ClientMenu {
     private ArrayList<String> menuItems= new ArrayList<>();
-    {
-        menuItems.add("sign in");
-        menuItems.add("sign up");
+     {
+        menuItems.add("new order");
+        menuItems.add("my previous orders");
         menuItems.add("exit");
     }
     public void startMenu(){
@@ -21,15 +21,13 @@ public class StarterMenu {
             switch (input) {
                 case "1":
                     System.out.println("----------------");
-                    AppContext.getSignIn().logIn();
                     break;
                 case "2":
                     System.out.println("----------------");
-                    AppContext.getSignUp().signUpNewClient();
                     break;
                 case "3":
                     System.out.println("----------------");
-                    AppContext.getExitProgram().exitCheck();
+                    AppContext.getClientExit().exitCheck();
                     break;
                 default:
                     System.out.println("your input is not valid.");
