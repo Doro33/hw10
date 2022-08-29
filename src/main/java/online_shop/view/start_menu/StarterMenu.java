@@ -1,4 +1,4 @@
-package online_shop.view;
+package online_shop.view.start_menu;
 
 import online_shop.util.AppContext;
 
@@ -26,6 +26,7 @@ public class StarterMenu {
                     break firsLoop;
                 case "3":
                     System.out.println("----------------");
+                    AppContext.getExitChecking().exitCheck();
                     break firsLoop;
                 default:
                     System.out.println("your input is not valid.");
