@@ -14,15 +14,17 @@ public class StarterMenu {
     public void startMenu(){
         AppContext.printStrings(menuItems);
         System.out.print("what do you want to do: ");
-        String input = AppContext.getScanner().nextLine();
+        String input;
         firsLoop:
-        while (!input.isEmpty()) {
+        while (true) {
+            input=AppContext.getScanner().nextLine();
             switch (input) {
                 case "1":
                     System.out.println("----------------");
                     break firsLoop;
                 case "2":
                     System.out.println("----------------");
+                    AppContext.getSignUp().signUpNewClient();
                     break firsLoop;
                 case "3":
                     System.out.println("----------------");
@@ -31,7 +33,6 @@ public class StarterMenu {
                 default:
                     System.out.println("your input is not valid.");
                     System.out.print("you can only choose 1-3 : ");
-                    input=AppContext.getScanner().nextLine();
             }
         }
     }

@@ -2,9 +2,6 @@ package online_shop.view.start_menu;
 
 import online_shop.util.AppContext;
 
-import java.sql.SQLException;
-import java.util.Scanner;
-
 public class ExitChecking {
     public void exitCheck(){
         System.out.println("are you sure you want to exit?");

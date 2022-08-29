@@ -4,6 +4,7 @@ import online_shop.repository.ClientRepository;
 import online_shop.repository.clientRepositoryImpl.ClientRepoImpl;
 import online_shop.sevice.starter_menu_service.SignUpService;
 import online_shop.view.start_menu.ExitChecking;
+import online_shop.view.start_menu.SignUp;
 import online_shop.view.start_menu.StarterMenu;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class AppContext {
     private static final ExitChecking EXIT_CHECKING= new ExitChecking();
     private static final ClientRepository CLIENT_REPOSITORY= new ClientRepoImpl();
     private static final SignUpService SIGN_UP_SERVICE= new SignUpService();
+    private static final SignUp SIGN_UP= new SignUp();
     public static Scanner getScanner() {
         return SCANNER;
     }
@@ -22,6 +24,7 @@ public class AppContext {
     public static ExitChecking getExitChecking(){return EXIT_CHECKING;}
     public static ClientRepository getClientRepository(){return CLIENT_REPOSITORY;}
     public static SignUpService getSignUpService(){return SIGN_UP_SERVICE;}
+    public static SignUp getSignUp(){return SIGN_UP;}
     public static void printStrings(ArrayList input) {
         if (input.isEmpty())
             System.out.println("there is no item to show.");
