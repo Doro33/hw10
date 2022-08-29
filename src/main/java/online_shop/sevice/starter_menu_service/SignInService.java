@@ -6,7 +6,7 @@ import online_shop.util.AppContext;
 import java.sql.SQLException;
 
 public class SignInService {
-    public static boolean usernameExist(String username) {
+    public boolean usernameExist(String username) {
         try {
             return AppContext.getClientRepository().usernameExist(username);
         } catch (SQLException e) {
@@ -14,7 +14,7 @@ public class SignInService {
         }
     }
 
-    public static Client findClientByUsername(String username){
+    public Client findClientByUsername(String username){
         try {
             return AppContext.getClientRepository().findByUsername(username);
         } catch (SQLException e) {

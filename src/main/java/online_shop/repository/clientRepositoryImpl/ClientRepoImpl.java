@@ -56,7 +56,7 @@ public class ClientRepoImpl implements ClientRepository {
         ps.setString(1, username);
         ps.execute();
         ResultSet rs = ps.executeQuery();
-        rs.next();
+        if (rs.next()){
         Client output=new Client();
         output.setId(rs.getInt(1));
         output.setName(rs.getString(2));
@@ -65,7 +65,8 @@ public class ClientRepoImpl implements ClientRepository {
         output.setPassword(rs.getString(5));
         ps.close();
         rs.close();
-        return output;
+        return output;}
+        else return null;
     }
 
     @Override

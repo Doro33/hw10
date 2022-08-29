@@ -15,21 +15,22 @@ public class StarterMenu {
         AppContext.printStrings(menuItems);
         System.out.print("what do you want to do: ");
         String input;
-        firsLoop:
+
         while (true) {
             input=AppContext.getScanner().nextLine();
             switch (input) {
                 case "1":
                     System.out.println("----------------");
-                    break firsLoop;
+                    AppContext.getSignIn().logIn();
+                    break;
                 case "2":
                     System.out.println("----------------");
                     AppContext.getSignUp().signUpNewClient();
-                    break firsLoop;
+                    break;
                 case "3":
                     System.out.println("----------------");
                     AppContext.getExitChecking().exitCheck();
-                    break firsLoop;
+                    break;
                 default:
                     System.out.println("your input is not valid.");
                     System.out.print("you can only choose 1-3 : ");
