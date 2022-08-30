@@ -6,7 +6,6 @@ import online_shop.entity.products.Product;
 import online_shop.entity.products.Readable;
 import online_shop.entity.products.Shoes;
 import online_shop.util.AppContext;
-import online_shop.view.start_menu.client_menu.ClientMenu;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class ItemAdding {
         MENU_ITEMS.add("readable");
         MENU_ITEMS.add("exit");
     }
-    private int getNumber(int maxRowIndex) {
+    private int getNumber(int maxValidInteger) {
         String input;
         int number;
         while (true) {
@@ -27,7 +26,7 @@ public class ItemAdding {
                 System.out.println("should be fixed");
             }else try{
                 number=Integer.parseInt(input);
-                if (0 < number && number<= maxRowIndex)
+                if (0 < number && number<= maxValidInteger)
                     break;
                 else System.out.println("your input is not valid");
             }catch (Exception e){
