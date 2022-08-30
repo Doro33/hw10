@@ -14,6 +14,7 @@ import online_shop.sevice.starter_menu_service.SignUpService;
 import online_shop.view.start_menu.client_menu.ClientExit;
 import online_shop.view.start_menu.client_menu.ClientMenu;
 import online_shop.view.start_menu.client_menu.PreviousOrders;
+import online_shop.view.start_menu.client_menu.new_order_menu.ItemAdding;
 import online_shop.view.start_menu.client_menu.new_order_menu.NewOrderMenu;
 import online_shop.view.start_menu.client_menu.new_order_menu.OrderExit;
 import online_shop.view.start_menu.ExitProgram;
@@ -44,6 +45,7 @@ public class AppContext {
     private static final ShoesRepoImpl SHOES_REPO= new ShoesRepoImpl();
     private static final ReadableRepoImpl READABLE_REPO= new ReadableRepoImpl();
     private static final OrderMenuService ORDER_MENU_SERVICE= new OrderMenuService();
+    private static final ItemAdding ITEM_ADDING= new ItemAdding();
     public static Scanner getScanner() {
         return new Scanner(System.in);
     }
@@ -65,6 +67,7 @@ public class AppContext {
     public static ShoesRepoImpl getShoesRepo(){return SHOES_REPO;}
     public static ReadableRepoImpl getReadableRepo(){return READABLE_REPO;}
     public static OrderMenuService getOrderMenuService(){return ORDER_MENU_SERVICE;}
+    public static ItemAdding getItemAdding(){return ITEM_ADDING;}
     public static void printStrings(ArrayList input) {
         if (input.isEmpty())
             System.out.println("there is no item to show.");
@@ -72,5 +75,13 @@ public class AppContext {
             for (int i = 0; i < input.size(); i++) {
                 System.out.println(i + 1 + ") " + input.get(i));
             }
+    }
+    public static void doneReaction() {
+        System.out.println("Done.");
+        System.out.println("Press Enter To Continue");
+        try {
+            System.in.read();
+        } catch (Exception ignored) {
+        }
     }
 }

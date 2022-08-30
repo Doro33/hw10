@@ -1,7 +1,6 @@
 package online_shop.view.start_menu.client_menu.new_order_menu;
 
 import online_shop.entity.client.Client;
-import online_shop.entity.order.Item;
 import online_shop.util.AppContext;
 
 public class OrderExit {
@@ -18,7 +17,7 @@ public class OrderExit {
                 AppContext.getClientMenu().startMenu(client);
             } else if (input.matches("n")) {
                 System.out.println("----------------");
-                AppContext.getNewOrderMenu().startMenu(client);
+                AppContext.getNewOrderMenu().StartMenu(client);
             } else
                 System.out.println("your input is not valid.");
         }

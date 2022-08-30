@@ -103,7 +103,7 @@ public class ItemAdding {
                     return makeNewItem(productR);
                 case "4":
                     System.out.println("----------------");
-                    AppContext.getNewOrderMenu().startMenu(AppContext.getClientMenu().getClient());
+                    AppContext.getNewOrderMenu().StartMenu(AppContext.getClientMenu().getClient());
                     break;
                 default:
                     System.out.println("your input is not valid.");

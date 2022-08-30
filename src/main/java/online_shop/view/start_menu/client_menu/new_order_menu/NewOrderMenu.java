@@ -8,23 +8,22 @@ import java.util.ArrayList;
 
 public class NewOrderMenu {
     private ArrayList<Item> items = new ArrayList<>();
-    private  ArrayList<String> menuItems = new ArrayList<>();
+    private final ArrayList<String> MENU_ITEMS = new ArrayList<>();
      {
-        menuItems.add("add an item");
-        menuItems.add("delete an item");
-        menuItems.add("confirm my order");
-        menuItems.add("get back");
+        MENU_ITEMS.add("add an item");
+        MENU_ITEMS.add("delete an item");
+        MENU_ITEMS.add("confirm my order");
+        MENU_ITEMS.add("get back");
     }
-    public void startMenu(Client client){
-        AppContext.printStrings(menuItems);
+    public void StartMenu(Client client){
+        AppContext.printStrings(MENU_ITEMS);
         System.out.print("what do you want to do: ");
         String input;
         while (true) {
             input=AppContext.getScanner().nextLine();
             switch (input) {
                 case "1":
-                    System.out.println("----------------");
-                    break;
+                    addAnItem(client);
                 case "2":
                     System.out.println("----------------");
                     break;
@@ -39,6 +38,21 @@ public class NewOrderMenu {
                     System.out.println("your input is not valid.");
                     System.out.print("you can only choose 1-4 : ");
             }
+        }
+    }
+
+    private void addAnItem(Client client) {
+        if (items.size()<5){
+        System.out.println("----------------");
+        Item item =AppContext.getItemAdding().selectItem();
+        items.add(item);
+        AppContext.doneReaction();
+        System.out.println("----------------");
+        StartMenu(client);
+        }else {
+            System.out.println("order cant have more than 5 items.");
+            AppContext.printStrings(items);
+            StartMenu(client);
         }
     }
 
