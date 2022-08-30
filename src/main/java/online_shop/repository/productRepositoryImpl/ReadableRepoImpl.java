@@ -1,5 +1,6 @@
 package online_shop.repository.productRepositoryImpl;
 
+import online_shop.entity.products.Product;
 import online_shop.entity.products.Readable;
 import online_shop.repository.ProductRepository;
 import online_shop.util.AppConnection;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReadableRepoImpl implements ProductRepository<Readable> {
+public class  ReadableRepoImpl implements ProductRepository<Readable> {
     private Connection connection = AppConnection.getConnection();
 
     private Readable getReadable(ResultSet rs) throws SQLException {

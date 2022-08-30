@@ -59,7 +59,7 @@ public class ShoesRepoImpl implements ProductRepository<Shoes> {
     }
 
     @Override
-    public ArrayList getAvailableProducts() throws SQLException {
+    public ArrayList<Shoes> getAvailableProducts() throws SQLException {
         String sql = """
                 Select * from shoes
                 where quantity>0;

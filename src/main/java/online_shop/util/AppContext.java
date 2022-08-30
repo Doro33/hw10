@@ -4,14 +4,18 @@ import online_shop.repository.ClientRepository;
 import online_shop.repository.OrderRepository;
 import online_shop.repository.clientRepositoryImpl.ClientRepoImpl;
 import online_shop.repository.orderRepositoryImpl.OrderRepoImpl;
+import online_shop.repository.productRepositoryImpl.ElectricDeviceRepoImpl;
+import online_shop.repository.productRepositoryImpl.ReadableRepoImpl;
+import online_shop.repository.productRepositoryImpl.ShoesRepoImpl;
 import online_shop.sevice.client_menu_service.PreviousOrderService;
+import online_shop.sevice.order_menu_service.OrderMenuService;
 import online_shop.sevice.starter_menu_service.SignInService;
 import online_shop.sevice.starter_menu_service.SignUpService;
-import online_shop.view.client_menu.ClientExit;
-import online_shop.view.client_menu.ClientMenu;
-import online_shop.view.client_menu.PreviousOrders;
-import online_shop.view.client_menu.new_order_menu.NewOrderMenu;
-import online_shop.view.client_menu.new_order_menu.OrderExit;
+import online_shop.view.start_menu.client_menu.ClientExit;
+import online_shop.view.start_menu.client_menu.ClientMenu;
+import online_shop.view.start_menu.client_menu.PreviousOrders;
+import online_shop.view.start_menu.client_menu.new_order_menu.NewOrderMenu;
+import online_shop.view.start_menu.client_menu.new_order_menu.OrderExit;
 import online_shop.view.start_menu.ExitProgram;
 import online_shop.view.start_menu.SignIn;
 import online_shop.view.start_menu.SignUp;
@@ -36,6 +40,10 @@ public class AppContext {
     private static final PreviousOrders PREVIOUS_ORDERS= new PreviousOrders();
     private static final NewOrderMenu NEW_ORDER_MENU = new NewOrderMenu();
     private static final OrderExit ORDER_EXIT=new OrderExit();
+    private static final ElectricDeviceRepoImpl ELECTRIC_DEVICE_REPO= new ElectricDeviceRepoImpl();
+    private static final ShoesRepoImpl SHOES_REPO= new ShoesRepoImpl();
+    private static final ReadableRepoImpl READABLE_REPO= new ReadableRepoImpl();
+    private static final OrderMenuService ORDER_MENU_SERVICE= new OrderMenuService();
     public static Scanner getScanner() {
         return new Scanner(System.in);
     }
@@ -53,6 +61,10 @@ public class AppContext {
     public static PreviousOrders getPreviousOrders(){return PREVIOUS_ORDERS;}
     public static NewOrderMenu getNewOrderMenu(){return NEW_ORDER_MENU;}
     public static OrderExit getOrderExit(){return ORDER_EXIT;}
+    public static ElectricDeviceRepoImpl getElectricDeviceRepo(){return ELECTRIC_DEVICE_REPO;}
+    public static ShoesRepoImpl getShoesRepo(){return SHOES_REPO;}
+    public static ReadableRepoImpl getReadableRepo(){return READABLE_REPO;}
+    public static OrderMenuService getOrderMenuService(){return ORDER_MENU_SERVICE;}
     public static void printStrings(ArrayList input) {
         if (input.isEmpty())
             System.out.println("there is no item to show.");

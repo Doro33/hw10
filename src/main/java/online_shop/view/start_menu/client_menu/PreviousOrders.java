@@ -1,4 +1,4 @@
-package online_shop.view.client_menu;
+package online_shop.view.start_menu.client_menu;
 
 import online_shop.entity.client.Client;
 import online_shop.entity.order.Order;
